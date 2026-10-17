@@ -1,0 +1,20 @@
+flowchart TD
+  A[Tenant signs in] --> B{What do they need?}
+  B --> C[My rental: lease, unit details, house rules, documents]
+  B --> D[Important dates: rent due, inspections, renewal window]
+  B --> E[Pay rent, see balance and history]
+  B --> F[Contact the super]
+  D --> D1[Renewal reminders 90, 60 and 30 days out]
+  D1 --> D2{Renew?}
+  D2 -->|Yes| D3[Sign renewal online]
+  D2 -->|No| D4[Give notice to vacate]
+  F --> F1{Urgent?}
+  F1 -->|Emergency: water, heat, lockout| F2[Call the emergency line]
+  F1 -->|Routine| F3[Maintenance request with photos]
+  F3 --> F4[Super triages]
+  F4 --> F5{Can the super fix it?}
+  F5 -->|Yes| F6[Super schedules a visit]
+  F5 -->|No| F7[Vendor dispatched]
+  F6 --> F8[Work done, tenant confirms]
+  F7 --> F8
+  F8 --> F9[Request closed, cost logged against the vendor]

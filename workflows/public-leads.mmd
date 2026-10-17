@@ -1,0 +1,15 @@
+flowchart TD
+  A[Visitor arrives: search, ads, social, building signage] --> B[Browses properties and neighborhood pages]
+  B --> C{Interested?}
+  C -->|Not yet| D[Leaves, or signs up for listing alerts]
+  C -->|Yes| E[Inquiry or tour request]
+  E --> F[Lead created in the CRM with its source]
+  F --> G[Leasing staff assigned, follow-up within a target time]
+  G --> H[Tour]
+  H --> I{Applies?}
+  I -->|Yes| J[Application: hands off to the tenant list workflow]
+  I -->|No| K[Lead nurtured or closed with a reason]
+  A -.-> AN[(Analytics)]
+  E -.-> AN
+  F -.-> AN
+  J -.-> AN

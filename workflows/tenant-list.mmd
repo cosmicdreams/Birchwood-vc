@@ -1,0 +1,16 @@
+flowchart TD
+  A[Applicant from the CRM] --> B[Application and screening]
+  B -->|Approved| C[Lease signed]
+  B -->|Declined| X[Applicant notified, lead closed]
+  C --> D[Tenant record created: unit, lease dates, rent, contacts]
+  D --> E[Move-in: keys, inspection, portal invite]
+  E --> F[Active tenancy]
+  F --> G{Something changes?}
+  G -->|Roommate, contact details, pet| H[Staff updates the record]
+  H --> F
+  F --> I{Renewal window opens}
+  I -->|Renews| J[New lease term]
+  J --> F
+  I -->|Moving out| K[Notice to vacate]
+  K --> L[Move-out inspection, deposit settled]
+  L --> Z[Record archived, unit goes back to listings]
