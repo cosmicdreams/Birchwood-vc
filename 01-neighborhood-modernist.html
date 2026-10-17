@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24483E">
+  <meta name="description" content="The neighborhood modernist — a visual identity exploration for Birchwood Property Group.">
+  <title>Birchwood — The neighborhood modernist</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    :root { --green:#24483E; --cream:#F7F2E8; --clay:#B65F45; --sage:#DCE5D8; --ink:#252B28; --line:#24483E40; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--cream); color:var(--ink); font-family:'Plus Jakarta Sans',Arial,sans-serif; }
+    a { color:inherit; text-underline-offset:5px; }
+    a:focus-visible { outline:3px solid var(--clay); outline-offset:5px; }
+    svg { display:block; max-width:100%; }
+    .symbols { position:absolute; width:0; height:0; overflow:hidden; }
+    .wrap { max-width:1440px; margin:auto; padding:0 5%; }
+    .eyebrow { font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; }
+    .top { display:flex; justify-content:space-between; gap:20px; padding-block:26px; border-bottom:1px solid var(--line); }
+    .top a { font-size:12px; }
+    .hero { padding-block:75px 65px; display:grid; grid-template-columns:1.35fr 1fr; gap:8%; align-items:center; }
+    .hero h1 { font-size:clamp(45px,6.2vw,88px); line-height:1.06; font-weight:500; letter-spacing:-.065em; margin:22px 0; }
+    .hero h1 em { font-family:Georgia,serif; font-weight:400; }
+    .lede { max-width:480px; font-size:16px; line-height:1.8; }
+    .hero-brand { color:var(--green); text-align:center; padding:50px 20px; position:relative; }
+    .hero-brand:before { content:''; position:absolute; inset:0 7%; border:1px solid var(--line); border-radius:50% 50% 0 0; }
+    .hero-brand > * { position:relative; }
+    .mark { width:85px; height:100px; margin:0 auto 20px; }
+    .wordmark { font-size:clamp(34px,4.8vw,66px); font-weight:800; letter-spacing:-.075em; line-height:1.15; }
+    .descriptor { font-size:10px; font-weight:700; letter-spacing:.3em; margin-top:12px; }
+    .brand-note { font-size:11px; margin-top:55px; }
+    .ribbon { background:var(--green); color:var(--cream); padding:20px 5%; display:flex; justify-content:space-between; gap:20px; font-size:12px; }
+    section.board { padding-block:60px; border-bottom:1px solid var(--line); }
+    .section-head { display:flex; justify-content:space-between; gap:30px; align-items:baseline; margin-bottom:30px; }
+    h2 { font-size:25px; letter-spacing:-.045em; margin:0; font-weight:500; }
+    .section-head p { font-size:12px; line-height:1.6; max-width:360px; margin:0; }
+    .number { font-size:11px; letter-spacing:.05em; margin-right:18px; color:var(--green); }
+    .palette { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
+    .chip-color { height:140px; border:1px solid #252B2820; border-radius:60px 60px 0 0; }
+    .chip h3 { font-size:14px; margin:16px 0 6px; }
+    .chip p { font-size:11px; line-height:1.8; margin:0; }
+    .type-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:6%; }
+    .type-name { font-size:clamp(32px,4vw,58px); font-weight:600; letter-spacing:-.06em; margin:0 0 24px; }
+    .alphabet { font-size:clamp(18px,2.4vw,32px); line-height:1.6; overflow-wrap:anywhere; }
+    .type-samples { border-left:1px solid var(--line); padding-left:35px; }
+    .type-samples h3 { font-size:32px; letter-spacing:-.05em; line-height:1.15; margin:20px 0; }
+    .type-samples p { font-size:14px; line-height:1.8; }
+    .caption { font-size:11px; line-height:1.7; }
+    .logos { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:14px; }
+    .logo-tile { min-height:255px; padding:34px 20px; display:flex; flex-direction:column; align-items:center; justify-content:center; background:var(--sage); color:var(--green); }
+    .logo-tile .wordmark { font-size:39px; }
+    .logo-tile .mark { width:52px; height:65px; margin-bottom:12px; }
+    .logo-tile.dark { background:var(--green); color:var(--cream); }
+    .logo-tile.mono { background:white; color:black; border:1px solid #252B2820; }
+    .logo-tile .caption { margin:25px 0 0; }
+    .applications { display:grid; grid-template-columns:1.2fr 1fr; gap:25px; }
+    .sign-scene { padding:65px 12%; min-height:360px; background:repeating-linear-gradient(0deg,#c6b29b 0px,#c6b29b 43px,#b29e87 44px,#b29e87 46px); display:grid; place-items:center; }
+    .sign { width:100%; max-width:350px; padding:40px 20px; text-align:center; color:var(--cream); background:var(--green); border:5px solid var(--green); outline:1px solid #f7f2e86b; outline-offset:-13px; box-shadow:8px 12px 0 #252B2833; }
+    .sign .mark { width:45px; height:55px; margin-bottom:14px; }
+    .sign .wordmark { font-size:36px; }
+    .sign .descriptor { font-size:8px; }
+    .letter { background:var(--sage); padding:35px; display:flex; flex-direction:column; justify-content:center; }
+    .letter-top { display:flex; justify-content:space-between; align-items:center; gap:15px; }
+    .letter .wordmark { font-size:25px; }
+    .letter .tag { font-size:9px; border:1px solid var(--green); border-radius:20px; padding:7px 10px; }
+    .letter h3 { font-size:32px; letter-spacing:-.045em; margin:35px 0 10px; }
+    .letter p { font-size:13px; line-height:1.8; }
+    .letter .letter-end { border-top:1px solid var(--line); padding-top:16px; margin-top:20px; font-size:11px; }
+    .preview-shell { border:1px solid var(--green); }
+    .browser { background:var(--sage); padding:13px 20px; display:flex; align-items:center; gap:15px; border-bottom:1px solid var(--line); font-size:10px; }
+    .dots { letter-spacing:3px; color:var(--green); }
+    .site { background:var(--cream); }
+    .site-nav { padding:25px 4%; display:flex; align-items:center; justify-content:space-between; gap:25px; border-bottom:1px solid var(--line); }
+    .site-brand { display:flex; gap:10px; align-items:center; color:var(--green); }
+    .site-brand svg { width:30px; height:40px; }
+    .site-brand .wordmark { font-size:28px; }
+    .site-brand .descriptor { font-size:6px; margin-top:3px; letter-spacing:.26em; }
+    .nav-labels { display:flex; gap:24px; font-size:11px; align-items:center; }
+    .nav-pill { border:1px solid var(--green); padding:10px 16px; border-radius:30px; }
+    .site-hero { display:grid; grid-template-columns:1.05fr 1fr; min-height:530px; }
+    .site-copy { padding:65px 8%; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; }
+    .site-copy h3 { font-size:clamp(36px,4.4vw,64px); font-weight:500; letter-spacing:-.065em; line-height:1.09; color:var(--green); margin:23px 0; }
+    .site-copy p { font-size:13px; line-height:1.8; max-width:330px; margin:0 0 28px; }
+    .actions { display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+    .button-sample { display:inline-flex; padding:15px 20px; border-radius:30px; background:var(--green); color:var(--cream); font-size:11px; gap:25px; align-items:center; }
+    .secondary-sample { font-size:11px; text-decoration:underline; text-underline-offset:4px; }
+    .art { background:var(--sage); position:relative; display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; }
+    .art svg { width:100%; height:auto; flex:1; }
+    .art-note { padding:15px 25px; font-size:9px; text-transform:uppercase; letter-spacing:.12em; border-top:1px solid var(--line); }
+    .site-bottom { display:grid; grid-template-columns:1fr 1fr 1fr; padding:26px 4%; gap:25px; border-top:1px solid var(--line); }
+    .site-bottom h4 { font-size:12px; margin:0 0 7px; }
+    .site-bottom p { font-size:10px; line-height:1.7; margin:0; }
+    .preview-note { display:flex; justify-content:space-between; gap:25px; margin-top:17px; }
+    footer { padding-block:35px 55px; display:flex; justify-content:space-between; gap:25px; font-size:11px; line-height:1.7; }
+    @media(max-width:760px) {
+      .hero { grid-template-columns:1fr; padding-top:45px; gap:30px; }
+      .hero-brand { max-width:450px; width:100%; margin:auto; }
+      .hero-brand .wordmark { font-size:52px; }
+      .section-head { flex-direction:column; gap:15px; }
+      .palette { grid-template-columns:repeat(3,1fr); row-gap:25px; }
+      .chip-color { height:110px; }
+      .type-grid,.applications,.site-hero { grid-template-columns:1fr; }
+      .type-samples { border-left:0; border-top:1px solid var(--line); padding:25px 0 0; margin-top:20px; }
+      .logos { grid-template-columns:1fr 1fr; }
+      .logo-tile:first-child { grid-column:1/-1; }
+      .logo-tile { min-height:220px; }
+      .nav-labels { display:none; }
+      .site-copy { padding:45px 7%; }
+      .site-copy h3 { font-size:48px; }
+      .art svg { max-height:470px; }
+      .site-bottom { grid-template-columns:1fr; gap:18px; }
+      .preview-note,footer { flex-direction:column; gap:10px; }
+      .ribbon { flex-wrap:wrap; }
+    }
+    @media(max-width:380px) {
+      .top { flex-direction:column; gap:8px; }
+      .palette { grid-template-columns:repeat(2,1fr); }
+      .logos { grid-template-columns:1fr; }
+      .logo-tile:first-child { grid-column:auto; }
+      .site-copy h3 { font-size:39px; }
+      .letter { padding:25px; }
+      .letter-top { align-items:flex-start; flex-direction:column; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+    @media print { .wrap { max-width:none; } section.board { break-inside:avoid; } .top a { display:none; } }
+  </style>
+</head>
+<body>
+  <svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- One continuous doorway spine, two softened bowls: B as a welcoming threshold. -->
+      <symbol id="door-b" viewBox="0 0 80 100">
+        <path fill="currentColor" fill-rule="evenodd" d="M8 94V32C8 14 20 5 37 5h9c19 0 29 10 29 25 0 9-5 16-12 20 10 3 15 10 15 20 0 16-12 24-30 24H8Zm18-52h17c10 0 15-4 15-11 0-7-5-11-14-11h-7c-7 0-11 5-11 12v10Zm0 37h19c10 0 16-4 16-11 0-8-6-12-16-12H26v23Z"/>
+      </symbol>
+    </defs>
+  </svg>
+  <header class="wrap">
+    <div class="top"><span class="eyebrow">Birchwood Property Group · Identity study 01</span><a href="#website">Jump to website preview ↗</a></div>
+    <div class="hero">
+      <div><span class="eyebrow">Direction 01 / The neighborhood modernist</span><h1>Good bones.<br><em>Warm welcome.</em></h1><p class="lede">An identity with its feet on the sidewalk. Sturdy geometry, a softer edge, and the everyday warmth of a place that feels like yours.</p></div>
+      <div class="hero-brand"><svg class="mark" role="img" aria-label="Birchwood B doorway symbol"><use href="#door-b"/></svg><div class="wordmark">birchwood</div><div class="descriptor">PROPERTY GROUP</div><div class="brand-note">Rooted in the everyday.</div></div>
+    </div>
+  </header>
+  <div class="ribbon"><span>Warm, not rustic.</span><span>Modern, not impersonal.</span><span>Dependable, not corporate.</span></div>
+  <main class="wrap">
+    <section class="board" aria-labelledby="palette-title">
+      <div class="section-head"><h2 id="palette-title"><span class="number">01</span>Color palette</h2><p>A grounded green leads. Cream leaves room to breathe. Clay adds a human touch, not a luxury signal.</p></div>
+      <div class="palette">
+        <div class="chip"><div class="chip-color" style="background:#24483E"></div><h3>Evergreen</h3><p>#24483E<br>Primary · identity &amp; actions</p></div>
+        <div class="chip"><div class="chip-color" style="background:#F7F2E8"></div><h3>Warm cream</h3><p>#F7F2E8<br>Canvas · generous &amp; open</p></div>
+        <div class="chip"><div class="chip-color" style="background:#B65F45"></div><h3>Clay</h3><p>#B65F45<br>Accent · illustration &amp; detail</p></div>
+        <div class="chip"><div class="chip-color" style="background:#DCE5D8"></div><h3>Sage</h3><p>#DCE5D8<br>Support · quiet surfaces</p></div>
+        <div class="chip"><div class="chip-color" style="background:#252B28"></div><h3>Soft ink</h3><p>#252B28<br>Reading · everyday clarity</p></div>
+      </div>
+    </section>
+    <section class="board" aria-labelledby="type-title">
+      <div class="section-head"><h2 id="type-title"><span class="number">02</span>Typography</h2><p>Plus Jakarta Sans brings rounded confidence. Tight, weighty lettering for the name; relaxed rhythm for everything people need to read.</p></div>
+      <div class="type-grid"><div><p class="type-name">Plus Jakarta Sans</p><div class="alphabet">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm<br>0123456789 &amp; welcome.</div><p class="caption">REGULAR 400 / MEDIUM 500 / SEMIBOLD 600 / EXTRA BOLD 800</p></div><div class="type-samples"><span class="eyebrow">Small details. Real character.</span><h3>A place to settle in.<br>A neighborhood to step into.</h3><p>Plainspoken, thoughtful, and easy to understand. A useful note should feel like it came from a person, not a policy manual.</p><p class="caption">Editorial serif appears only in the concept headline; everyday brand communication stays sans serif.</p></div></div>
+    </section>
+    <section class="board" aria-labelledby="logo-title">
+      <div class="section-head"><h2 id="logo-title"><span class="number">03</span>Logo treatments</h2><p>A doorway hidden in a sturdy B. Soft bowls and an open, architectural rhythm meet a close-set lowercase wordmark.</p></div>
+      <div class="logos">
+        <div class="logo-tile"><svg class="mark" aria-hidden="true"><use href="#door-b"/></svg><div class="wordmark">birchwood</div><div class="descriptor">PROPERTY GROUP</div><p class="caption">01 / Primary lockup</p></div>
+        <div class="logo-tile dark"><svg class="mark" role="img" aria-label="Cream B doorway logo"><use href="#door-b"/></svg><p class="caption">02 / Reversed symbol</p></div>
+        <div class="logo-tile mono"><svg class="mark" role="img" aria-label="Black monochrome B doorway logo"><use href="#door-b"/></svg><p class="caption">03 / Single-color mark</p></div>
+      </div><p class="caption">Original SVG symbol. Wordmark is a live-type study with tailored spacing, not final custom lettering.</p>
+    </section>
+    <section class="board" aria-labelledby="applications-title">
+      <div class="section-head"><h2 id="applications-title"><span class="number">04</span>Everyday applications</h2><p>Identity that works at the front door and in your inbox. The little touchpoints are the brand.</p></div>
+      <div class="applications">
+        <div><div class="sign-scene"><div class="sign"><svg class="mark" aria-hidden="true"><use href="#door-b"/></svg><div class="wordmark">birchwood</div><div class="descriptor">PROPERTY GROUP</div></div></div><p class="caption">BUILDING SIGN / Illustrative material study; not an actual property.</p></div>
+        <div><article class="letter"><div class="letter-top"><span class="wordmark">birchwood</span><span class="tag">SAMPLE RESIDENT NOTE</span></div><h3>A small heads-up.</h3><p>Hi neighbors,<br>We’re planning a little care for the shared spaces. Your property-specific notice would include the date, timing, and anything you need to know.</p><p>Thanks for making room for the everyday upkeep.<br>— The Birchwood team</p><div class="letter-end">Clear information. A familiar voice. No unnecessary fine print.</div></article><p class="caption">RESIDENT COMMUNICATION / Tone-of-voice example, not a real notice.</p></div>
+      </div>
+    </section>
+    <section class="board" id="website" aria-labelledby="website-title">
+      <div class="section-head"><h2 id="website-title"><span class="number">05</span>Website preview</h2><p>The identity, out in the neighborhood. A welcoming first impression with a clear path for future and current residents.</p></div>
+      <div class="preview-shell">
+        <div class="browser"><span class="dots" aria-hidden="true">● ● ●</span><span>Birchwood / Homepage concept</span></div>
+        <div class="site">
+          <div class="site-nav"><div class="site-brand"><svg aria-hidden="true"><use href="#door-b"/></svg><div><div class="wordmark">birchwood</div><div class="descriptor">PROPERTY GROUP</div></div></div><div class="nav-labels" aria-hidden="true"><span>Our homes</span><span>Our approach</span><span class="nav-pill">Resident resources ↗</span></div></div>
+          <div class="site-hero">
+            <div class="site-copy"><span class="eyebrow">At home in Uptown</span><h3>A little more<br>neighborhood.<br>A lot more home.</h3><p>Room for your routines. Space to make your own. Meet Birchwood Property Group — a neighborly approach to finding your next home.</p><div class="actions"><span class="button-sample">Explore our homes <span aria-hidden="true">↗</span></span><span class="secondary-sample">Resident resources</span></div></div>
+            <div class="art">
+              <svg viewBox="0 0 550 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="art-title art-desc">
+                <title id="art-title">An imagined neighborhood streetscape</title><desc id="art-desc">Original illustration of warm brick buildings, arched doors, sidewalk trees, and a bicycle. This is not a depiction of a Birchwood property.</desc>
+                <defs><pattern id="brick" width="48" height="28" patternUnits="userSpaceOnUse"><path d="M0 0H48M0 28H48M24 0V14M0 14H48M0 14V28M48 14V28" fill="none" stroke="#F7F2E8" stroke-opacity=".18"/></pattern><g id="window"><rect width="52" height="82" rx="25" fill="#24483E"/><path d="M26 0V82M0 40H52" stroke="#F7F2E8" stroke-width="5"/><path d="M-5 84H57" stroke="#F7F2E8" stroke-width="8"/></g></defs>
+                <circle cx="428" cy="104" r="49" fill="#F7F2E8"/>
+                <path d="M0 470V210H87V143H150V102H337V145H402V470" fill="#B65F45"/>
+                <path d="M0 470V210H87V143H150V102H337V145H402V470" fill="url(#brick)"/>
+                <path d="M140 102H347M77 143H410M0 218H402" fill="none" stroke="#24483E" stroke-width="12"/>
+                <path d="M402 470V239H550V470" fill="#F7F2E8"/>
+                <path d="M402 239H550" stroke="#24483E" stroke-width="9"/>
+                <use href="#window" x="115" y="173"/><use href="#window" x="208" y="173"/><use href="#window" x="301" y="173"/>
+                <use href="#window" x="115" y="301"/><use href="#window" x="301" y="301"/>
+                <path d="M201 470V355a36 36 0 0 1 72 0v115" fill="#F7F2E8"/>
+                <path d="M210 470V357a27 27 0 0 1 54 0v113" fill="#24483E"/>
+                <path d="M237 332v138" stroke="#DCE5D8" stroke-width="3"/>
+                <circle cx="250" cy="411" r="3" fill="#F7F2E8"/>
+                <path d="M191 470H284M181 482H294M171 494H304" stroke="#252B28" stroke-width="10"/>
+                <path d="M428 286H477V345H428ZM499 286H548V345H499Z" fill="#24483E"/>
+                <path d="M453 287V344M524 287V344" stroke="#DCE5D8" stroke-width="3"/>
+                <path d="M0 504H550V580H0Z" fill="#F7F2E8"/><path d="M0 548H550" stroke="#24483E" stroke-width="2"/>
+                <path d="M64 501V334M64 403L26 365M65 379L103 342" stroke="#24483E" stroke-width="9"/>
+                <path d="M61 274C6 268-18 332 12 361c-19 44 35 74 58 46 44 22 74-30 48-57 23-43-22-81-57-76Z" fill="#24483E"/>
+                <path d="M64 501V346" stroke="#F7F2E8" stroke-width="3"/>
+                <path d="M0 507H130" stroke="#24483E" stroke-width="9"/>
+                <g fill="none" stroke="#24483E" stroke-width="4"><circle cx="379" cy="501" r="25"/><circle cx="466" cy="501" r="25"/><path d="m379 501 29-45 28 45h-57l21-34h53l13 34m-58-45-5-12h-12m62 23-5-23h15"/></g>
+                <path d="M501 507h36l-5-36h-26Z" fill="#B65F45"/><path d="M519 472v-50m0 28c-30 1-32-27-32-27 28-3 32 27 32 27m0-11c28 0 29-28 29-28-25 1-29 28-29 28" fill="#24483E"/>
+              </svg>
+              <div class="art-note">An imagined streetscape / original illustration</div>
+            </div>
+          </div>
+          <div class="site-bottom"><div><h4>Find your next chapter.</h4><p>A place for available homes and property information.</p></div><div><h4>Already a neighbor?</h4><p>A clear route to resident tools and helpful contacts.</p></div><div><h4>Let’s get acquainted.</h4><p>A friendly introduction to the people behind the name.</p></div></div>
+        </div>
+      </div>
+      <div class="preview-note caption"><span>ILLUSTRATIVE PREVIEW / Navigation and CTA treatments are noninteractive samples.</span><span>Sample copy only. No availability or property features are represented.</span></div>
+    </section>
+  </main>
+  <footer class="wrap"><span>Birchwood Property Group<br>Direction 01 — The neighborhood modernist</span><span>Concept study / Not a live property website<br>Original illustration &amp; symbol · Designed for everyday belonging</span><a href="#">Back to top ↑</a></footer>
+</body>
+</html>
