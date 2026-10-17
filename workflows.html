@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Birchwood: how people use the website (draft workflows)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --evergreen: #24483E;
+    --limestone: #ECEFE7;
+    --sage: #C9D6C5;
+    --paper: #FBFAF6;
+    --ink: #1F2622;
+    --muted: #4A5550;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--limestone);
+    color: var(--ink);
+    font: 400 17px/1.6 "Albert Sans", Helvetica, Arial, sans-serif;
+  }
+  a { color: var(--evergreen); }
+  a:focus-visible { outline: 3px solid var(--evergreen); outline-offset: 3px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  header { padding: 56px 0 32px; }
+  h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; font-weight: 600; margin: 0 0 16px; color: var(--evergreen); max-width: 16ch; }
+  .lede { max-width: 62ch; margin: 0 0 12px; }
+  .note { max-width: 62ch; color: var(--muted); font-size: 15px; margin: 0; }
+  nav { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-weight: 500; }
+  section { padding: 40px 0; border-top: 1px solid var(--sage); }
+  .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 16px 40px; align-items: start; margin-bottom: 20px; }
+  h2 { font-size: 1.6rem; line-height: 1.2; font-weight: 600; margin: 0; color: var(--evergreen); }
+  .who { display: block; font-size: 15px; font-weight: 500; color: var(--muted); margin-bottom: 4px; }
+  .head p { margin: 0; max-width: 60ch; }
+  .diagram { background: var(--paper); border-radius: 6px; padding: 24px; overflow-x: auto; }
+  .diagram .mermaid { min-width: 640px; text-align: center; }
+  .gaps { margin: 16px 0 0; padding-left: 1.2em; color: var(--muted); font-size: 15px; max-width: 75ch; }
+  .gaps li + li { margin-top: 4px; }
+  footer { padding: 32px 0 56px; border-top: 1px solid var(--sage); color: var(--muted); font-size: 15px; }
+  @media (max-width: 760px) {
+    .head { grid-template-columns: 1fr; }
+    .diagram { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>How people will use the Birchwood website</h1>
+  <p class="lede">Six draft workflows: one map of the whole site, then one for each job the site has to do. They are a starting point for conversation, built from a short brief, so most steps are educated guesses.</p>
+  <p class="note">Under each diagram is a list of the assumptions it makes. The questions that would confirm or correct them are in <a href="questions.md">questions.md</a>. Each diagram is also its own file in the <a href="workflows/">workflows</a> folder, so it can be edited on its own.</p>
+  <nav aria-label="Workflows">
+    <a href="#overview">The whole site</a>
+    <a href="#roster">Tenant list</a>
+    <a href="#payments">Rent collection</a>
+    <a href="#onboarding">New property</a>
+    <a href="#tenant">Tenant portal</a>
+    <a href="#public">Public site and leads</a>
+  </nav>
+</header>
+
+<section id="overview">
+  <div class="head">
+    <h2><span class="who">Everyone</span>The whole site at a glance</h2>
+    <p>Four groups of people use three parts of the site, and everything they do reads or writes the same shared records. A lead from the public site becomes an applicant, then a tenant, and the same person record follows them the whole way.</p>
+  </div>
+  <div class="diagram"><pre class="mermaid" data-src="workflows/overview.mmd">
+flowchart LR
+  subgraph People
+    P([Public visitor])
+    T([Tenant])
+    S([Office staff])
+    M([Management])
+  end
+  subgraph Site[Birchwood website]
+    MK[Public site: listings and marketing]
+    TP[Tenant portal]
+    OPS[Staff workspace]
+  end
+  subgraph Records[Shared records]
+    CRM[(Leads and CRM)]
+    TEN[(Tenants and leases)]
+    PAY[(Rent and payments)]
+    MNT[(Maintenance requests)]
+    PROP[(Properties and units)]
+    VEN[(Supers and vendors)]
+  end
+  P --> MK
+  T --> TP
+  S --> OPS
+  M --> OPS
+  MK --> CRM
+  MK -.-> AN[(Analytics)]
+  TP --> TEN
+  TP --> PAY
+  TP --> MNT
+  OPS --> CRM
+  OPS --> TEN
+  OPS --> PAY
+  OPS --> MNT
+  OPS --> PROP
+  OPS --> VEN
+  MNT --> VEN
+  </pre></div>
+  <ul class="gaps">
+    <li>Assumes one website with three areas rather than separate tools, and one shared set of records.</li>
+    <li>Assumes office staff and management use the same workspace with different permissions.</li>
+    <li>Supers appear here as records, not as users. They may need their own sign-in.</li>
+  </ul>
+</section>
+
+<section id="roster">
+  <div class="head">
+    <h2><span class="who">Office staff</span>Keeping the tenant list right</h2>
+    <p>The tenant list is the core record of the business. It starts when an applicant is approved and ends when a move-out is settled. Every change in between, from a new roommate to a renewal, should land in one place.</p>
+  </div>
+  <div class="diagram"><pre class="mermaid" data-src="workflows/tenant-list.mmd">
+flowchart TD
+  A[Applicant from the CRM] --> B[Application and screening]
+  B -->|Approved| C[Lease signed]
+  B -->|Declined| X[Applicant notified, lead closed]
+  C --> D[Tenant record created: unit, lease dates, rent, contacts]
+  D --> E[Move-in: keys, inspection, portal invite]
+  E --> F[Active tenancy]
+  F --> G{Something changes?}
+  G -->|Roommate, contact details, pet| H[Staff updates the record]
+  H --> F
+  F --> I{Renewal window opens}
+  I -->|Renews| J[New lease term]
+  J --> F
+  I -->|Moving out| K[Notice to vacate]
+  K --> L[Move-out inspection, deposit settled]
+  L --> Z[Record archived, unit goes back to listings]
+  </pre></div>
+  <ul class="gaps">
+    <li>Assumes screening (credit, background, income) happens inside this process, possibly through an outside service.</li>
+    <li>Assumes leases are signed electronically.</li>
+    <li>Assumes past tenants are archived, not deleted, so their history stays available.</li>
+  </ul>
+</section>
+
+<section id="payments">
+  <div class="head">
+    <h2><span class="who">Office staff</span>Collecting rent</h2>
+    <p>The goal is a high, steady collection rate. Most rent should arrive with nothing more than a reminder. The rest of the work is spotting a late payment early and getting it resolved before it becomes an eviction.</p>
+  </div>
+  <div class="diagram"><pre class="mermaid" data-src="workflows/rent-collection.mmd">
+flowchart TD
+  A[Rent posted to each ledger on schedule] --> B[Reminder before the due date]
+  B --> C{Paid by the due date?}
+  C -->|Yes| D[Receipt sent, ledger reconciled]
+  C -->|No| E[Grace period]
+  E --> F{Paid during grace?}
+  F -->|Yes| D
+  F -->|No| G[Late fee and late notice]
+  G --> H{Tenant responds?}
+  H -->|Asks for help| I[Payment plan agreed]
+  I --> J[Plan instalments tracked]
+  J --> D
+  H -->|No response| K[Staff call or visit]
+  K --> L{Resolved?}
+  L -->|Yes| D
+  L -->|No| N[Formal notice, legal process]
+  D -.-> R[(Collection rate dashboard)]
+  G -.-> R
+  N -.-> R
+  </pre></div>
+  <ul class="gaps">
+    <li>Assumes tenants can pay online and that some still pay by check or money order.</li>
+    <li>Assumes a grace period and a late fee exist. Both are set by lease terms and local law.</li>
+    <li>Assumes payment plans are allowed and tracked inside the site.</li>
+  </ul>
+</section>
+
+<section id="onboarding">
+  <div class="head">
+    <h2><span class="who">Management</span>Bringing in a new property</h2>
+    <p>A new building goes live only when its ramp-up checklist is complete and someone in management signs it off. Every unfinished item has a named owner, so nothing stalls quietly.</p>
+  </div>
+  <div class="diagram"><pre class="mermaid" data-src="workflows/new-property.mmd">
+flowchart TD
+  A[Property acquired or management contract signed] --> B[Property record created]
+  B --> C[Units added: layout, rent, status]
+  C --> D[Existing tenants and leases imported]
+  D --> E[Super and vendors assigned]
+  E --> F[Payments set up: bank account, rent schedule]
+  F --> G[Inspection and condition baseline]
+  G --> H[Photos, descriptions, listing copy]
+  H --> I[Existing tenants welcomed: letter and portal invite]
+  I --> J{Ramp-up checklist complete?}
+  J -->|Gaps remain| K[Each gap gets an owner and a date]
+  K --> J
+  J -->|Complete| L[Management sign-off: property is live]
+  L --> M[30, 60 and 90-day reviews]
+  </pre></div>
+  <ul class="gaps">
+    <li>Assumes Birchwood both owns properties and may manage some for other owners.</li>
+    <li>The order of the steps is a guess. Several can probably run in parallel.</li>
+    <li>Your brief left a second management item blank. There is a question about it in questions.md.</li>
+  </ul>
+</section>
+
+<section id="tenant">
+  <div class="head">
+    <h2><span class="who">Tenant</span>Using the tenant portal</h2>
+    <p>Tenants come to the portal for four things: what their rental includes, the dates that matter, paying rent, and reaching the super. Emergencies skip the form and go straight to a phone line.</p>
+  </div>
+  <div class="diagram"><pre class="mermaid" data-src="workflows/tenant-portal.mmd">
+flowchart TD
+  A[Tenant signs in] --> B{What do they need?}
+  B --> C[My rental: lease, unit details, house rules, documents]
+  B --> D[Important dates: rent due, inspections, renewal window]
+  B --> E[Pay rent, see balance and history]
+  B --> F[Contact the super]
+  D --> D1[Renewal reminders 90, 60 and 30 days out]
+  D1 --> D2{Renew?}
+  D2 -->|Yes| D3[Sign renewal online]
+  D2 -->|No| D4[Give notice to vacate]
+  F --> F1{Urgent?}
+  F1 -->|Emergency: water, heat, lockout| F2[Call the emergency line]
+  F1 -->|Routine| F3[Maintenance request with photos]
+  F3 --> F4[Super triages]
+  F4 --> F5{Can the super fix it?}
+  F5 -->|Yes| F6[Super schedules a visit]
+  F5 -->|No| F7[Vendor dispatched]
+  F6 --> F8[Work done, tenant confirms]
+  F7 --> F8
+  F8 --> F9[Request closed, cost logged against the vendor]
+  </pre></div>
+  <ul class="gaps">
+    <li>Assumes each building has one super who is the first stop for every request.</li>
+    <li>Assumes reminder timing of 90, 60 and 30 days. The real notice periods depend on lease terms and local law.</li>
+    <li>Assumes tenants can see vendor visit times but not vendor costs.</li>
+  </ul>
+</section>
+
+<section id="public">
+  <div class="head">
+    <h2><span class="who">Public</span>From visitor to lead</h2>
+    <p>The public site has one job: turn an interested visitor into a lead the leasing team can follow up. Analytics records where each lead came from, so marketing spend can be judged by leases signed, not by clicks.</p>
+  </div>
+  <div class="diagram"><pre class="mermaid" data-src="workflows/public-leads.mmd">
+flowchart TD
+  A[Visitor arrives: search, ads, social, building signage] --> B[Browses properties and neighborhood pages]
+  B --> C{Interested?}
+  C -->|Not yet| D[Leaves, or signs up for listing alerts]
+  C -->|Yes| E[Inquiry or tour request]
+  E --> F[Lead created in the CRM with its source]
+  F --> G[Leasing staff assigned, follow-up within a target time]
+  G --> H[Tour]
+  H --> I{Applies?}
+  I -->|Yes| J[Application: hands off to the tenant list workflow]
+  I -->|No| K[Lead nurtured or closed with a reason]
+  A -.-> AN[(Analytics)]
+  E -.-> AN
+  F -.-> AN
+  J -.-> AN
+  </pre></div>
+  <ul class="gaps">
+    <li>Assumes the website captures leads into a CRM, either one built in or an existing product.</li>
+    <li>Assumes tours are booked by people, not self-scheduled online.</li>
+    <li>Assumes "analytics" means both website traffic and the funnel from lead to lease.</li>
+  </ul>
+</section>
+
+<footer>Draft for discussion, October 2026. Every step is a proposal until the questions in questions.md are answered.</footer>
+</div>
+
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: "base",
+    flowchart: { curve: "basis", htmlLabels: true },
+    themeVariables: {
+      fontFamily: "Albert Sans, Helvetica, Arial, sans-serif",
+      fontSize: "15px",
+      primaryColor: "#ECEFE7",
+      primaryBorderColor: "#24483E",
+      primaryTextColor: "#1F2622",
+      lineColor: "#4A5550",
+      secondaryColor: "#C9D6C5",
+      tertiaryColor: "#FBFAF6",
+      clusterBkg: "#F3F5EF",
+      clusterBorder: "#C9D6C5"
+    }
+  });
+</script>
+</body>
+</html>

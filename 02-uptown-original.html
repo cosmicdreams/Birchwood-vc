@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#5C2433">
+<meta name="description" content="The Uptown original: an illustrative visual identity direction for Birchwood Property Group.">
+<title>Birchwood: The Uptown original (brand direction 2 of 3)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ox:#5C2433;--paper:#F6EBCF;--apricot:#EBA17A;--blue:#A9BDC8;--canvas:#DCE4E8;--char:#2A2627;
+--display:"Libre Caslon Display",Georgia,serif;--serif:"Libre Caslon Text",Georgia,serif;--sans:"Schibsted Grotesk",Arial,sans-serif;
+--pad:clamp(20px,5vw,72px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--canvas);color:var(--char);font:400 17px/1.7 var(--serif)}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+svg{display:block;max-width:100%}
+a{color:inherit;text-underline-offset:.2em}
+:focus-visible{outline:3px solid var(--ox);outline-offset:3px}
+.on-dark :focus-visible{outline-color:var(--paper)}
+.skip{position:absolute;left:12px;top:-60px;background:var(--ox);color:var(--paper);padding:10px 14px;font:600 14px var(--sans);z-index:5}
+.skip:focus{top:12px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 var(--pad)}
+.sans{font-family:var(--sans)}
+.small{font:500 14px/1.5 var(--sans)}
+
+/* masthead */
+.mast{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;padding:28px 0 0}
+.lockup{display:inline-flex;flex-direction:column;line-height:1;color:var(--ox)}
+.lockup .word{font-family:var(--display);font-size:34px;letter-spacing:-.01em}
+.lockup .desc{font:italic 400 14px var(--serif);margin-top:4px;padding-left:.15em}
+.toc{display:flex;gap:6px 22px;flex-wrap:wrap;font:500 14px var(--sans)}
+.toc a{text-decoration:none;color:var(--ox);border-bottom:1px solid transparent}
+.toc a:hover{border-color:currentColor}
+
+/* hero */
+.hero{padding:clamp(48px,8vw,104px) 0 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(22px,3vw,36px)}
+.hero h1{font:400 clamp(46px,7.2vw,112px)/.98 var(--display);letter-spacing:-.02em;color:var(--ox)}
+.hero h1 span{display:block}
+.hero p{max-width:46ch;font-size:19px}
+.direction{font:500 14px/1.5 var(--sans);color:var(--ox);margin-bottom:18px}
+.shelf{margin-top:clamp(40px,6vw,72px)}
+.shelf svg{width:100%;height:auto}
+.caption{font:400 14px/1.5 var(--sans);margin-top:12px;max-width:62ch}
+.spine{animation:rise .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i)*55ms + 150ms)}
+@keyframes rise{from{transform:translateY(46px);opacity:0}to{transform:none;opacity:1}}
+
+/* sections */
+section.block{padding:clamp(64px,9vw,128px) 0 0}
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,5vw,80px);align-items:end;margin-bottom:40px}
+.intro h2{font:400 clamp(36px,4.6vw,64px)/1.04 var(--display);letter-spacing:-.015em;color:var(--ox)}
+.intro p{max-width:46ch}
+
+/* palette */
+.strip{display:flex;height:120px}
+.strip span{display:block}
+.strip-note{font:400 14px/1.5 var(--sans);margin-top:10px}
+.colors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:40px;background:var(--paper)}
+.color{padding:24px 26px 28px;display:grid;grid-template-columns:44px 1fr;gap:4px 16px;align-items:start}
+.color i{grid-row:span 3;width:44px;height:44px;border-radius:50%;border:1px solid rgba(42,38,39,.35)}
+.color b{font:400 24px/1.2 var(--display);color:var(--ox)}
+.color .hex{font:600 14px var(--sans);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.color p{font:400 15px/1.5 var(--sans);max-width:30ch}
+.rule{margin-top:20px;font:400 15px/1.5 var(--sans);max-width:70ch}
+
+/* type */
+.type{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:0}
+.type-serif{background:var(--paper);padding:clamp(28px,4vw,56px)}
+.type-sans{background:var(--blue);padding:clamp(28px,4vw,56px)}
+.role{font:600 14px var(--sans);color:var(--ox)}
+.type-sans .role{color:var(--char)}
+.spec-big{font:400 clamp(56px,7vw,104px)/.95 var(--display);color:var(--ox);margin:28px 0 18px;letter-spacing:-.02em}
+.spec-it{font:italic 400 clamp(26px,2.6vw,36px)/1.25 var(--serif);color:var(--ox)}
+.alpha{font:400 22px/1.5 var(--serif);margin-top:26px;overflow-wrap:anywhere}
+.notice{background:var(--paper);margin:28px 0 22px;padding:22px 24px;font-family:var(--sans)}
+.notice b{display:block;font:600 22px/1.25 var(--sans);letter-spacing:-.01em;margin-bottom:8px}
+.notice p{font-size:16px;line-height:1.55}
+.alpha-sans{font:400 17px/1.6 var(--sans);overflow-wrap:anywhere}
+.usage{font:400 14px/1.5 var(--sans);margin-top:24px}
+
+/* signature */
+.sig{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto;gap:12px}
+.sig figure{margin:0;display:flex;flex-direction:column}
+.sig .art{flex:1;min-height:280px;display:grid;place-items:center;padding:36px 24px}
+.sig figcaption{font:400 14px/1.5 var(--sans);padding-top:10px}
+.art.ox{background:var(--ox);color:var(--paper)}
+.art.ap{background:var(--apricot);color:var(--ox)}
+.art.mono{background:#fff;color:#000;outline:1px solid #000;outline-offset:-1px}
+.big-lockup{display:flex;flex-direction:column;line-height:1}
+.big-lockup .word{font:400 clamp(56px,7.4vw,112px)/1 var(--display);letter-spacing:-.015em}
+.big-lockup .desc{font:italic 400 clamp(17px,1.8vw,24px) var(--serif);margin-top:8px;padding-left:.2em}
+.stamp{width:min(190px,100%);height:auto}
+.mono-set{display:flex;align-items:center;gap:18px}
+.mono-set svg{width:52px;height:62px}
+.mono-set .word{font:400 40px/1 var(--display)}
+.sig-note{margin-top:22px;max-width:66ch;font:400 15px/1.55 var(--sans)}
+
+/* applications */
+.apps{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:12px}
+.apps figure{margin:0}
+.wall{background:var(--blue);height:100%;min-height:520px;display:flex;align-items:center;justify-content:center;padding:24px}
+.wall svg{width:min(100%,420px);height:auto}
+.desk{background:var(--char);padding:clamp(24px,4vw,56px);display:flex;align-items:center;justify-content:center;height:100%}
+.letter{background:var(--paper);color:var(--char);padding:clamp(26px,3.6vw,48px);max-width:520px;width:100%}
+.letter-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding-bottom:22px;margin-bottom:26px;border-bottom:2px solid var(--ox)}
+.letter-head .lockup .word{font-size:28px}
+.letter-head svg{width:34px;height:40px;color:var(--ox)}
+.letter h3{font:400 clamp(32px,3.4vw,44px)/1.05 var(--display);color:var(--ox);margin-bottom:18px}
+.letter p{font-size:16px;line-height:1.7;margin-bottom:12px}
+.letter .sign-off{font:italic 400 20px/1.4 var(--serif);color:var(--ox);margin:22px 0 0}
+.apps figcaption{font:400 14px/1.5 var(--sans);padding-top:10px}
+
+/* website */
+.browser{background:var(--paper);outline:2px solid var(--char);outline-offset:-2px}
+.bar{display:flex;align-items:center;gap:14px;padding:10px 16px;background:var(--char);color:var(--paper);font:500 13px var(--sans)}
+.bar .url{background:rgba(246,235,207,.12);padding:3px 12px;border-radius:999px}
+.site-nav{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:20px clamp(18px,3vw,40px);background:var(--canvas)}
+.site-nav .lockup .word{font-size:28px}
+.site-nav ul{list-style:none;display:flex;gap:6px 26px;flex-wrap:wrap;margin:0;padding:0;font:500 15px var(--sans);color:var(--ox)}
+.web{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--canvas)}
+.web-copy{padding:clamp(32px,5vw,72px) clamp(18px,3vw,40px)}
+.web-copy h3{font:400 clamp(44px,5.4vw,80px)/.98 var(--display);color:var(--ox);letter-spacing:-.02em;margin-bottom:22px}
+.web-copy .line{display:block}
+.web-copy p{max-width:36ch}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.ctas button{font:600 15px var(--sans);padding:14px 22px;border:2px solid var(--ox);background:var(--ox);color:var(--paper);cursor:not-allowed}
+.ctas button+button{background:transparent;color:var(--ox)}
+.web-art{background:var(--blue);display:flex;align-items:flex-end;overflow:hidden;min-height:360px}
+.web-art svg{width:150%;max-width:none;margin-left:-38%;flex-shrink:0}
+.web-foot{padding:14px clamp(18px,3vw,40px);background:var(--apricot);font:500 14px var(--sans);color:var(--char)}
+.web-note{font:400 14px/1.5 var(--sans);margin-top:10px}
+
+footer{margin-top:clamp(64px,9vw,128px);background:var(--ox);color:var(--paper);padding:40px 0 48px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline}
+footer .lockup{color:var(--paper)}
+footer p{font:400 14px/1.5 var(--sans);max-width:52ch}
+
+@media (max-width:900px){
+ .hero-grid,.intro,.type,.apps,.web{grid-template-columns:1fr}
+ .intro{align-items:start}
+ .colors{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .sig{grid-template-columns:1fr 1fr}
+ .sig figure:first-child{grid-column:1/-1}
+ .wall{min-height:440px}
+}
+@media (max-width:560px){
+ body{font-size:16px}
+ .colors{grid-template-columns:1fr}
+ .sig{grid-template-columns:1fr}
+ .sig .art{min-height:220px}
+ .strip{height:80px}
+ .shelf svg{width:180%;max-width:none;margin-left:-40%}
+ .shelf{overflow:hidden}
+ .site-nav ul{font-size:14px;gap:4px 16px}
+ .bar .url{display:none}
+ .notice b{font-size:19px}
+ .web-art{min-height:0;padding-top:28px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.spine{animation:none}}
+@media print{.spine{animation:none}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the brand direction</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="mono" viewBox="0 0 100 120"><path d="M26 14v90M26 14h26c22 0 22 40 0 40H26M26 54h30c25 0 25 50 0 50H26M80 8v20M70 18h20M12 114h76" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="square"/></symbol>
+ <symbol id="shelf" viewBox="0 0 1200 420">
+  <g stroke="#2A2627" stroke-width="2" stroke-linejoin="round">
+<g class="spine" style="--i:0"><rect x="40" y="178" width="64" height="214" fill="#A9BDC8"/><rect x="35" y="166" width="74" height="12" fill="#A9BDC8"/><path d="M40 200h64M40 206h64M40 370h64M40 364h64" fill="none"/><text x="72.0" y="287.0" transform="rotate(-90 72.0 287.0)" text-anchor="middle" dominant-baseline="central" fill="#2A2627" stroke="none" font-family="Libre Caslon Text, Georgia, serif" font-size="23" font-style="italic">Porch season</text></g>
+<g class="spine" style="--i:1"><rect x="110" y="106" width="104" height="286" fill="#F6EBCF"/><path d="M110 106L162.0 62.32L214 106Z" fill="#F6EBCF"/><path d="M110 128h104M110 134h104M110 370h104M110 364h104" fill="none"/><rect x="132.88" y="146" width="18.72" height="22" fill="#2A2627" opacity=".85"/><rect x="172.4" y="146" width="18.72" height="22" fill="#2A2627" opacity=".85"/><text x="162.0" y="269.0" transform="rotate(-90 162.0 269.0)" text-anchor="middle" dominant-baseline="central" fill="#5C2433" stroke="none" font-family="Libre Caslon Text, Georgia, serif" font-size="24" font-style="italic">The corner café</text></g>
+<g class="spine" style="--i:2"><rect x="220" y="216" width="58" height="176" fill="#EBA17A"/><path d="M220 238h58M220 244h58M220 370h58M220 364h58" fill="none"/><text x="249.0" y="306.0" transform="rotate(-90 249.0 306.0)" text-anchor="middle" dominant-baseline="central" fill="#2A2627" stroke="none" font-family="Libre Caslon Text, Georgia, serif" font-size="21" font-style="italic">Mail call</text></g>
+<g class="spine" style="--i:3"><rect x="284" y="134" width="92" height="258" fill="#2A2627"/><rect x="302.4" y="118" width="55.199999999999996" height="16" fill="#2A2627"/><rect x="318.96" y="106" width="22.08" height="12" fill="#2A2627"/><path d="M284 156h92M284 162h92M284 370h92M284 364h92" fill="none"/><rect x="304.24" y="174" width="16.56" height="22" fill="#F6EBCF" opacity=".85"/><rect x="339.2" y="174" width="16.56" height="22" fill="#F6EBCF" opacity=".85"/><text x="330.0" y="283.0" transform="rotate(-90 330.0 283.0)" text-anchor="middle" dominant-baseline="central" fill="#F6EBCF" stroke="none" font-family="Libre Caslon Text, Georgia, serif" font-size="24" font-style="italic">Laundry day</text></g>
+<g class="spine" style="--i:4"><rect x="382" y="74" width="112" height="318" fill="#F6EBCF"/><rect x="377" y="62" width="122" height="12" fill="#F6EBCF"/><path d="M382 96h112M382 102h112M382 370h112M382 364h112" fill="none"/><rect x="406.64" y="114" width="20.16" height="22" fill="#2A2627" opacity=".85"/><rect x="449.2" y="114" width="20.16" height="22" fill="#2A2627" opacity=".85"/><text x="438.0" y="253.0" transform="rotate(-90 438.0 253.0)" text-anchor="middle" dominant-baseline="central" fill="#5C2433" stroke="none" font-family="Libre Caslon Text, Georgia, serif" font-size="24" font-style="italic">Good neighbors</text></g>
+<g class="spine" style="--i:5"><rect x="500" y="36" width="150" height="356" fill="#5C2433"/><rect x="495" y="24" width="160" height="12" fill="#5C2433"/><path d="M500 58h150M500 64h150M500 370h150M500 364h150" fill="none"/><g transform="translate(553.0 76)" stroke="#F6EBCF" stroke-width="6" stroke-linecap="square" fill="none"><path d="M10 6v58M10 6h17c13 0 13 26 0 26H10M10 32h20c15 0 15 32 0 32H10M44 0v12M38 6h12"/></g><text x="575.0" y="263.0" transform="rotate(-90 575.0 263.0)" text-anchor="middle" dominant-baseline="central" fill="#F6EBCF" stroke="none" font-family="Libre Caslon Display, Georgia, serif" font-size="46">Birchwood</text></g>
+<g class="spine" style="--i:6"><rect x="656" y="160" width="70" height="232" fill="#A9BDC8"/><path d="M656 160L691.0 130.6L726 160Z" fill="#A9BDC8"/><path d="M656 182h70M656 188h70M656 370h70M656 364h70" fill="none"/><text x="691.0" y="278.0" transform="rotate(-90 691.0 278.0)" text-anchor="middle" dominant-baseline="central" fill="#2A2627" stroke="none" font-family="Libre Caslon Text, Georgia, serif" font-size="24" font-style="italic">Moving day</text></g>
+<g class="spine" style="--i:7"><rect x="732" y="92" width="118" height="300" fill="#EBA17A"/><rect x="727" y="80" width="128" height="12" fill="#EBA17A"/><path d="M732 114h118M732 120h118M732 370h118M732 364h118" fill="none"/><rect x="757.96" y="132" width="21.24" height="22" fill="#2A2627" opacity=".85"/><rect x="802.8" y="132" width="21.24" height="22" fill="#2A2627" opacity=".85"/><text x="791.0" y="262.0" transform="rotate(-90 791.0 262.0)" text-anchor="middle" dominant-baseline="central" fill="#2A2627" stroke="none" font-family="Libre Caslon Text, Georgia, serif" font-size="24" font-style="italic">A new chapter</text></g>
+<g class="spine" style="--i:8"><rect x="856" y="204" width="60" height="188" fill="#5C2433"/><path d="M856 226h60M856 232h60M856 370h60M856 364h60" fill="none"/><text x="886.0" y="300.0" transform="rotate(-90 886.0 300.0)" text-anchor="middle" dominant-baseline="central" fill="#F6EBCF" stroke="none" font-family="Libre Caslon Text, Georgia, serif" font-size="22" font-style="italic">Front stoop</text></g>
+<g class="spine" style="--i:9"><rect x="922" y="130" width="96" height="262" fill="#F6EBCF"/><rect x="941.2" y="114" width="57.599999999999994" height="16" fill="#F6EBCF"/><rect x="958.48" y="102" width="23.04" height="12" fill="#F6EBCF"/><path d="M922 152h96M922 158h96M922 370h96M922 364h96" fill="none"/><rect x="943.12" y="170" width="17.28" height="22" fill="#2A2627" opacity=".85"/><rect x="979.6" y="170" width="17.28" height="22" fill="#2A2627" opacity=".85"/><text x="970.0" y="281.0" transform="rotate(-90 970.0 281.0)" text-anchor="middle" dominant-baseline="central" fill="#5C2433" stroke="none" font-family="Libre Caslon Text, Georgia, serif" font-size="24" font-style="italic">Window boxes</text></g>
+<g class="spine" style="--i:10"><rect x="1024" y="170" width="66" height="222" fill="#A9BDC8"/><rect x="1019" y="158" width="76" height="12" fill="#A9BDC8"/><path d="M1024 192h66M1024 198h66M1024 370h66M1024 364h66" fill="none"/><text x="1057.0" y="283.0" transform="rotate(-90 1057.0 283.0)" text-anchor="middle" dominant-baseline="central" fill="#2A2627" stroke="none" font-family="Libre Caslon Text, Georgia, serif" font-size="24" font-style="italic">Sunday paper</text></g>
+
+   <g class="spine" style="--i:11"><g transform="rotate(9 1112 392)"><rect x="1112" y="206" width="46" height="186" fill="#EBA17A"/><path d="M1112 228h46M1112 234h46M1112 370h46M1112 364h46" fill="none"/><text x="1135" y="300" transform="rotate(-90 1135 300)" text-anchor="middle" dominant-baseline="central" fill="#2A2627" stroke="none" font-family="Libre Caslon Text, Georgia, serif" font-style="italic" font-size="17">Good books</text></g></g>
+   <rect x="0" y="392" width="1200" height="14" fill="#2A2627"/>
+  </g>
+ </symbol>
+</svg>
+
+<div class="wrap">
+ <header class="mast">
+  <a class="lockup" href="#main" aria-label="Birchwood Property Group, back to top" style="text-decoration:none"><span class="word">Birchwood</span><span class="desc">Property Group</span></a>
+  <nav aria-label="On this page" class="toc"><a href="#color">Color</a><a href="#type">Type</a><a href="#signature">Signature</a><a href="#neighborhood">In the neighborhood</a><a href="#website">Website</a></nav>
+ </header>
+
+ <main id="main">
+  <section class="hero" aria-labelledby="title">
+   <p class="direction">Brand direction 2 of 3: The Uptown original</p>
+   <div class="hero-grid">
+    <h1 id="title"><span>A familiar face.</span><span>A character all its own.</span></h1>
+    <p>Think of the bookstore with the cat in the window and the café that knows your order. Birchwood should feel like that: well read, a little independent, and clearly part of the block.</p>
+   </div>
+   <figure class="shelf" style="margin-left:0;margin-right:0">
+    <svg viewBox="0 0 1200 420" role="img" aria-label="Illustration of a city block drawn as a shelf of books. Each spine is a building, titled with an everyday moment such as The corner café, Laundry day and Mail call. The tallest spine reads Birchwood." preserveAspectRatio="xMidYMax meet"><use href="#shelf"/></svg>
+    <figcaption class="caption">Every block is a shelf of stories. An imagined street, drawn for this direction; it doesn’t show a real Birchwood building.</figcaption>
+   </figure>
+  </section>
+
+  <section class="block" id="color" aria-labelledby="color-title">
+   <div class="intro"><h2 id="color-title">Oxblood ink on a reading-room blue.</h2><p>The colors of a well-loved library: oxblood bindings, buttercream pages, a pale blue room to read in. Apricot and charcoal come out for the details.</p></div>
+   <div class="strip" aria-hidden="true"><span style="flex:34;background:var(--canvas);outline:1px solid rgba(42,38,39,.3);outline-offset:-1px"></span><span style="flex:22;background:var(--ox)"></span><span style="flex:18;background:var(--paper)"></span><span style="flex:12;background:var(--blue)"></span><span style="flex:9;background:var(--char)"></span><span style="flex:5;background:var(--apricot)"></span></div>
+   <p class="strip-note">A typical page uses each color in roughly these proportions, from most to least.</p>
+   <div class="colors">
+    <div class="color"><i style="background:#DCE4E8"></i><b>Reading-room blue</b><span class="hex">#DCE4E8</span><p>Page backgrounds and wide open space.</p></div>
+    <div class="color"><i style="background:#5C2433"></i><b>Oxblood</b><span class="hex">#5C2433</span><p>The wordmark, headlines and primary actions.</p></div>
+    <div class="color"><i style="background:#F6EBCF"></i><b>Buttercream</b><span class="hex">#F6EBCF</span><p>Paper: letters, notices and type on oxblood.</p></div>
+    <div class="color"><i style="background:#A9BDC8"></i><b>Dusty blue</b><span class="hex">#A9BDC8</span><p>Quiet panels and illustration.</p></div>
+    <div class="color"><i style="background:#2A2627"></i><b>Charcoal</b><span class="hex">#2A2627</span><p>Body text and everyday detail.</p></div>
+    <div class="color"><i style="background:#EBA17A"></i><b>Apricot</b><span class="hex">#EBA17A</span><p>Small warm moments. Use it as a surface, never as text.</p></div>
+   </div>
+   <p class="rule">Text pairings that pass WCAG AA: oxblood or charcoal on the light colors, and buttercream on oxblood or charcoal. Oxblood on the page blue measures 9.4:1, and buttercream on oxblood 10.1:1.</p>
+  </section>
+
+  <section class="block" id="type" aria-labelledby="type-title">
+   <div class="intro"><h2 id="type-title">A bookish voice that still gets to the point.</h2><p>Caslon has set books for three hundred years, and that history is what we borrow. A plain, sturdy grotesk handles anything residents need to act on.</p></div>
+   <div class="type">
+    <div class="type-serif">
+     <p class="role">Libre Caslon: headlines, wordmark, letters</p>
+     <p class="spec-big">Well hello, neighbor.</p>
+     <p class="spec-it">Glad you found your way here.</p>
+     <p class="alpha">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk<br>1234567890 &amp; ?!</p>
+    </div>
+    <div class="type-sans">
+     <p class="role">Schibsted Grotesk: notices, navigation, forms</p>
+     <div class="notice"><b>Recycling pickup moves to Thursday this week.</b><p>Please have bins at the curb by 7 a.m. Questions? Reply to this message.</p></div>
+     <p class="alpha-sans">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz 0123456789</p>
+     <p class="usage">The notice above is sample copy, written to show the tone.</p>
+    </div>
+   </div>
+  </section>
+
+  <section class="block" id="signature" aria-labelledby="sig-title">
+   <div class="intro"><h2 id="sig-title">A name worth signing.</h2><p>The wordmark leads. The B monogram signs off, like a bookplate pressed inside a front cover: a stem for the building, two bowls for the floors, and a small cross-street up in the corner.</p></div>
+   <div class="sig">
+    <figure><div class="art ox on-dark"><div class="big-lockup" role="img" aria-label="Birchwood Property Group wordmark, reversed in buttercream on oxblood"><span class="word">Birchwood</span><span class="desc">Property Group</span></div></div><figcaption>Primary wordmark, reversed</figcaption></figure>
+    <figure><div class="art ap"><svg class="stamp" viewBox="0 0 200 240" role="img" aria-label="Bookplate seal: the B monogram inside an oval ring with the words Birchwood Property Group">
+      <defs><path id="arc" d="M30 120a70 92 0 0 1 140 0"/></defs>
+      <ellipse cx="100" cy="120" rx="94" ry="114" fill="none" stroke="currentColor" stroke-width="3"/>
+      <ellipse cx="100" cy="120" rx="84" ry="104" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text fill="currentColor" font-family="Libre Caslon Text, Georgia, serif" font-size="15" letter-spacing="1.5"><textPath href="#arc" startOffset="50%" text-anchor="middle">Birchwood Property Group</textPath></text>
+      <svg x="66" y="98" width="68" height="82" viewBox="0 0 100 120"><use href="#mono"/></svg>
+     </svg></div><figcaption>Monogram, as a bookplate seal</figcaption></figure>
+    <figure><div class="art mono"><div class="mono-set" role="img" aria-label="One-color black lockup with monogram and wordmark"><svg viewBox="0 0 100 120"><use href="#mono"/></svg><span class="word">Birchwood</span></div></div><figcaption>One color, for single-ink jobs</figcaption></figure>
+   </div>
+   <p class="sig-note">The wordmark is set in live type for this prototype. Final artwork would be redrawn and outlined, with the B and the d given a little more character.</p>
+  </section>
+
+  <section class="block" id="neighborhood" aria-labelledby="nb-title">
+   <div class="intro"><h2 id="nb-title">Out on the block, and in the mailbox.</h2><p>A blade sign that hangs over the sidewalk like a bookstore’s, and a welcome letter that reads like a note from a neighbor.</p></div>
+   <div class="apps">
+    <figure>
+     <div class="wall"><svg viewBox="0 0 420 520" role="img" aria-label="Illustration of an oxblood blade sign hanging from an iron bracket on a brick wall, with the monogram and the word Birchwood running vertically">
+       <g fill="none" stroke="#2A2627" stroke-width="1.5" opacity=".35"><path d="M0 40h420M0 80h420M0 120h420M0 160h420M0 200h420M0 240h420M0 280h420M0 320h420M0 360h420M0 400h420M0 440h420M0 480h420"/><path d="M60 0v40M180 0v40M300 0v40M120 40v40M240 40v40M360 40v40M60 80v40M180 80v40M300 80v40M120 120v40M240 120v40M360 120v40M60 160v40M180 160v40M300 160v40M120 200v40M240 200v40M360 200v40M60 240v40M180 240v40M300 240v40M120 280v40M240 280v40M360 280v40M60 320v40M180 320v40M300 320v40M120 360v40M240 360v40M360 360v40M60 400v40M180 400v40M300 400v40M120 440v40M240 440v40M360 440v40M60 480v40M180 480v40M300 480v40"/></g>
+       <rect x="20" y="40" width="22" height="70" fill="#2A2627"/>
+       <path d="M42 56h300M42 92c80 0 120-36 220-36" fill="none" stroke="#2A2627" stroke-width="7"/>
+       <path d="M190 56v26M300 56v26" stroke="#2A2627" stroke-width="4"/>
+       <rect x="160" y="82" width="170" height="400" fill="#5C2433" stroke="#2A2627" stroke-width="3"/>
+       <rect x="172" y="94" width="146" height="376" fill="none" stroke="#F6EBCF" stroke-width="2"/>
+       <svg x="215" y="118" width="60" height="72" viewBox="0 0 100 120" style="color:#F6EBCF"><use href="#mono"/></svg>
+       <text x="245" y="338" transform="rotate(-90 245 338)" text-anchor="middle" dominant-baseline="central" fill="#F6EBCF" font-family="Libre Caslon Display, Georgia, serif" font-size="54">Birchwood</text>
+      </svg></div>
+     <figcaption>Sample blade sign on an imagined wall. Not a real property.</figcaption>
+    </figure>
+    <figure>
+     <div class="desk"><article class="letter" aria-labelledby="letter-title">
+      <div class="letter-head"><span class="lockup"><span class="word">Birchwood</span><span class="desc">Property Group</span></span><svg viewBox="0 0 100 120" aria-hidden="true"><use href="#mono"/></svg></div>
+      <h3 id="letter-title">A new chapter, and a familiar hello.</h3>
+      <p>Hi, neighbor.</p>
+      <p>Moving brings a hundred small details. This letter would gather the useful ones in one place: who to call, where the resident resources live, and how to reach us when something needs fixing.</p>
+      <p class="sign-off">Glad you’re here.<br>The Birchwood team</p>
+     </article></div>
+     <figcaption>Sample welcome letter, written to show the tone. It has not been sent to anyone.</figcaption>
+    </figure>
+   </div>
+  </section>
+
+  <section class="block" id="website" aria-labelledby="web-title">
+   <div class="intro"><h2 id="web-title">A front door that reads like a front page.</h2><p>A homepage that opens with a welcome, not a leasing banner: one generous headline, two clear next steps, and the shelf of stories alongside.</p></div>
+   <div class="browser">
+    <div class="bar" aria-hidden="true"><span>Homepage preview</span><span class="url">birchwood.example</span></div>
+    <div class="site-nav"><span class="lockup"><span class="word">Birchwood</span><span class="desc">Property Group</span></span><ul aria-label="Sample navigation, not links"><li>Find a home</li><li>Our story</li><li>Residents</li></ul></div>
+    <div class="web">
+     <div class="web-copy"><h3><span class="line">A little more neighborhood.</span> <span class="line">A lot more home.</span></h3><p>Home is more than a dot on a map. It’s your everyday corner of the world, and we’d like to help you find it.</p><div class="ctas"><button type="button" disabled>Explore our homes</button><button type="button" disabled>Resident resources</button></div></div>
+     <div class="web-art"><svg viewBox="0 0 1200 420" role="img" aria-label="The shelf-of-books street illustration, cropped" preserveAspectRatio="xMidYMax meet"><use href="#shelf"/></svg></div>
+    </div>
+    <div class="web-foot">Residential places with neighborhood personality.</div>
+   </div>
+   <p class="web-note">Preview only: the buttons and navigation do nothing, and no listings or availability are shown.</p>
+  </section>
+ </main>
+</div>
+<footer class="on-dark"><div class="wrap"><span class="lockup"><span class="word">Birchwood</span><span class="desc">Property Group</span></span><p>The Uptown original, brand direction 2 of 3. A visual exploration, not a live property website. <a href="#main">Back to top</a></p></div></footer>
+</body>
+</html>

@@ -1,0 +1,14 @@
+flowchart TD
+  A[Property acquired or management contract signed] --> B[Property record created]
+  B --> C[Units added: layout, rent, status]
+  C --> D[Existing tenants and leases imported]
+  D --> E[Super and vendors assigned]
+  E --> F[Payments set up: bank account, rent schedule]
+  F --> G[Inspection and condition baseline]
+  G --> H[Photos, descriptions, listing copy]
+  H --> I[Existing tenants welcomed: letter and portal invite]
+  I --> J{Ramp-up checklist complete?}
+  J -->|Gaps remain| K[Each gap gets an owner and a date]
+  K --> J
+  J -->|Complete| L[Management sign-off: property is live]
+  L --> M[30, 60 and 90-day reviews]

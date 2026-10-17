@@ -1,0 +1,19 @@
+flowchart TD
+  A[Rent posted to each ledger on schedule] --> B[Reminder before the due date]
+  B --> C{Paid by the due date?}
+  C -->|Yes| D[Receipt sent, ledger reconciled]
+  C -->|No| E[Grace period]
+  E --> F{Paid during grace?}
+  F -->|Yes| D
+  F -->|No| G[Late fee and late notice]
+  G --> H{Tenant responds?}
+  H -->|Asks for help| I[Payment plan agreed]
+  I --> J[Plan instalments tracked]
+  J --> D
+  H -->|No response| K[Staff call or visit]
+  K --> L{Resolved?}
+  L -->|Yes| D
+  L -->|No| N[Formal notice, legal process]
+  D -.-> R[(Collection rate dashboard)]
+  G -.-> R
+  N -.-> R

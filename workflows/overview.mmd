@@ -1,0 +1,36 @@
+flowchart LR
+  subgraph People
+    P([Public visitor])
+    T([Tenant])
+    S([Office staff])
+    M([Management])
+  end
+  subgraph Site[Birchwood website]
+    MK[Public site: listings and marketing]
+    TP[Tenant portal]
+    OPS[Staff workspace]
+  end
+  subgraph Records[Shared records]
+    CRM[(Leads and CRM)]
+    TEN[(Tenants and leases)]
+    PAY[(Rent and payments)]
+    MNT[(Maintenance requests)]
+    PROP[(Properties and units)]
+    VEN[(Supers and vendors)]
+  end
+  P --> MK
+  T --> TP
+  S --> OPS
+  M --> OPS
+  MK --> CRM
+  MK -.-> AN[(Analytics)]
+  TP --> TEN
+  TP --> PAY
+  TP --> MNT
+  OPS --> CRM
+  OPS --> TEN
+  OPS --> PAY
+  OPS --> MNT
+  OPS --> PROP
+  OPS --> VEN
+  MNT --> VEN
